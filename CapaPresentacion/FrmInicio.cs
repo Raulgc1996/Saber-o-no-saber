@@ -12,9 +12,21 @@ namespace CapaPresentacion
 {
     public partial class FrmInicio : Form
     {
+      //  private negocio
+      // privare rafaga 
         public FrmInicio()
         {
             InitializeComponent();
+            // cargar pregunta
+            //respuestas
+
+        }
+
+        private void Btnjuego_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("vcbf");
+            //comprovar
+
         }
     }
 }
