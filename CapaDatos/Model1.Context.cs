@@ -6,13 +6,12 @@
 //    Los cambios manuales en este archivo se sobrescribirán si se regenera el código.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 namespace CapaDatos
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    
+    using CapaEntidades;
     public partial class SABER_DBEntities : DbContext
     {
         public SABER_DBEntities()
