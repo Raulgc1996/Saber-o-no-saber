@@ -41,7 +41,7 @@
             this.Btnjuego12 = new System.Windows.Forms.Button();
             this.Btnjuego8 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblPregunta = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // Btnjuego5
@@ -160,22 +160,21 @@
             this.button1.TabIndex = 9;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
-
             // 
-            // label1
+            // lblPregunta
             // 
-            this.label1.Location = new System.Drawing.Point(160, 55);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(668, 23);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "label1";
+            this.lblPregunta.Location = new System.Drawing.Point(160, 55);
+            this.lblPregunta.Name = "lblPregunta";
+            this.lblPregunta.Size = new System.Drawing.Size(668, 23);
+            this.lblPregunta.TabIndex = 10;
+            this.lblPregunta.Text = "label1";
             // 
             // FrmInicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(952, 563);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblPregunta);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.Btnjuego4);
             this.Controls.Add(this.Btnjuego12);
@@ -210,6 +209,6 @@
         private System.Windows.Forms.Button Btnjuego12;
         private System.Windows.Forms.Button Btnjuego8;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblPregunta;
     }
 }
