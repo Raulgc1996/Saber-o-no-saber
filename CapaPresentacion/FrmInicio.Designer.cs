@@ -40,8 +40,11 @@
             this.Btnjuego4 = new System.Windows.Forms.Button();
             this.Btnjuego12 = new System.Windows.Forms.Button();
             this.Btnjuego8 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnJugar = new System.Windows.Forms.Button();
             this.lblPregunta = new System.Windows.Forms.Label();
+            this.BtnFin = new System.Windows.Forms.Button();
+            this.lblPuntos = new System.Windows.Forms.Label();
+            this.lblJusti = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // Btnjuego5
@@ -152,30 +155,60 @@
             this.Btnjuego8.UseVisualStyleBackColor = true;
             this.Btnjuego8.Click += new System.EventHandler(this.Btnjuego_Click);
             // 
-            // button1
+            // btnJugar
             // 
-            this.button1.Location = new System.Drawing.Point(32, 39);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(95, 44);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnJugar.Location = new System.Drawing.Point(32, 39);
+            this.btnJugar.Name = "btnJugar";
+            this.btnJugar.Size = new System.Drawing.Size(95, 44);
+            this.btnJugar.TabIndex = 9;
+            this.btnJugar.Text = "Jugar";
+            this.btnJugar.UseVisualStyleBackColor = true;
+            this.btnJugar.Click += new System.EventHandler(this.btnJugar_Click);
             // 
             // lblPregunta
             // 
-            this.lblPregunta.Location = new System.Drawing.Point(160, 55);
+            this.lblPregunta.Location = new System.Drawing.Point(265, 55);
             this.lblPregunta.Name = "lblPregunta";
-            this.lblPregunta.Size = new System.Drawing.Size(668, 23);
+            this.lblPregunta.Size = new System.Drawing.Size(532, 23);
             this.lblPregunta.TabIndex = 10;
             this.lblPregunta.Text = "label1";
+            // 
+            // BtnFin
+            // 
+            this.BtnFin.Location = new System.Drawing.Point(845, 39);
+            this.BtnFin.Name = "BtnFin";
+            this.BtnFin.Size = new System.Drawing.Size(95, 44);
+            this.BtnFin.TabIndex = 11;
+            this.BtnFin.Text = "Finalizar";
+            this.BtnFin.UseVisualStyleBackColor = true;
+            this.BtnFin.Click += new System.EventHandler(this.BtnFin_Click);
+            // 
+            // lblPuntos
+            // 
+            this.lblPuntos.Location = new System.Drawing.Point(149, 55);
+            this.lblPuntos.Name = "lblPuntos";
+            this.lblPuntos.Size = new System.Drawing.Size(54, 23);
+            this.lblPuntos.TabIndex = 12;
+            this.lblPuntos.Text = "0";
+            // 
+            // lblJusti
+            // 
+            this.lblJusti.Location = new System.Drawing.Point(29, 483);
+            this.lblJusti.Name = "lblJusti";
+            this.lblJusti.Size = new System.Drawing.Size(911, 71);
+            this.lblJusti.TabIndex = 13;
+            this.lblJusti.Text = "label1";
             // 
             // FrmInicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(952, 563);
+            this.Controls.Add(this.lblJusti);
+            this.Controls.Add(this.lblPuntos);
+            this.Controls.Add(this.BtnFin);
             this.Controls.Add(this.lblPregunta);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnJugar);
             this.Controls.Add(this.Btnjuego4);
             this.Controls.Add(this.Btnjuego12);
             this.Controls.Add(this.Btnjuego8);
@@ -208,7 +241,10 @@
         private System.Windows.Forms.Button Btnjuego4;
         private System.Windows.Forms.Button Btnjuego12;
         private System.Windows.Forms.Button Btnjuego8;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnJugar;
         private System.Windows.Forms.Label lblPregunta;
+        private System.Windows.Forms.Button BtnFin;
+        private System.Windows.Forms.Label lblPuntos;
+        private System.Windows.Forms.Label lblJusti;
     }
 }
