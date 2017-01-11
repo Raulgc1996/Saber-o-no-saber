@@ -104,6 +104,7 @@ namespace CapaPresentacion
             botones = new List<Button> { Btnjuego1, Btnjuego2, Btnjuego3, Btnjuego4, Btnjuego5, Btnjuego6, Btnjuego7, Btnjuego8, Btnjuego9, Btnjuego10, Btnjuego11, Btnjuego12 };
         foreach (Button boton in botones){
                 boton.Enabled = false;
+                boton.BackColor = DefaultBackColor;
             }
         }
     }
