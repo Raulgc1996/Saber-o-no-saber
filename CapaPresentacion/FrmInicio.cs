@@ -14,7 +14,7 @@ namespace CapaPresentacion
     public partial class FrmInicio : Form
     {
         private Negocio negocio = new Negocio();
-        //  private negocio
+        //  private negocio fghj
         private int rafaga;
         private int puntuacion;
         private int contAciertos;
