@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="SABER_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="INCORRECTA_EXPLICACION">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDRESPUESTA" Type="int" Nullable="false" />
+          <Property Name="JUSTIFICACION" Type="nvarchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PREGUNTAS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="nvarchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RESPUESTAS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDPREGUNTA" Type="int" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="nvarchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__INCORRECT__IDRES__286302EC">
+          <End Role="RESPUESTAS" Type="Self.RESPUESTAS" Multiplicity="1" />
+          <End Role="INCORRECTA_EXPLICACION" Type="Self.INCORRECTA_EXPLICACION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RESPUESTAS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="INCORRECTA_EXPLICACION">
+              <PropertyRef Name="IDRESPUESTA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RESPUESTA__IDPRE__25869641">
+          <End Role="PREGUNTAS" Type="Self.PREGUNTAS" Multiplicity="1" />
+          <End Role="RESPUESTAS" Type="Self.RESPUESTAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PREGUNTAS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="RESPUESTAS">
+              <PropertyRef Name="IDPREGUNTA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SABER_DBModelStoreContainer">
+          <EntitySet Name="INCORRECTA_EXPLICACION" EntityType="Self.INCORRECTA_EXPLICACION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PREGUNTAS" EntityType="Self.PREGUNTAS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RESPUESTAS" EntityType="Self.RESPUESTAS" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__INCORRECT__IDRES__286302EC" Association="Self.FK__INCORRECT__IDRES__286302EC">
+            <End Role="RESPUESTAS" EntitySet="RESPUESTAS" />
+            <End Role="INCORRECTA_EXPLICACION" EntitySet="INCORRECTA_EXPLICACION" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RESPUESTA__IDPRE__25869641" Association="Self.FK__RESPUESTA__IDPRE__25869641">
+            <End Role="PREGUNTAS" EntitySet="PREGUNTAS" />
+            <End Role="RESPUESTAS" EntitySet="RESPUESTAS" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SABER_DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="INCORRECTA_EXPLICACION">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDRESPUESTA" Type="Int32" Nullable="false" />
+          <Property Name="JUSTIFICACION" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="RESPUESTA" Relationship="Self.FK__INCORRECT__IDRES__286302EC" FromRole="INCORRECTA_EXPLICACION" ToRole="RESPUESTAS" />
+        </EntityType>
+        <EntityType Name="PREGUNTA">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DESCRIPCION" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="RESPUESTAS" Relationship="Self.FK__RESPUESTA__IDPRE__25869641" FromRole="PREGUNTAS" ToRole="RESPUESTAS" />
+        </EntityType>
+        <EntityType Name="RESPUESTA">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDPREGUNTA" Type="Int32" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="INCORRECTA_EXPLICACION" Relationship="Self.FK__INCORRECT__IDRES__286302EC" FromRole="RESPUESTAS" ToRole="INCORRECTA_EXPLICACION" />
+          <NavigationProperty Name="PREGUNTA" Relationship="Self.FK__RESPUESTA__IDPRE__25869641" FromRole="RESPUESTAS" ToRole="PREGUNTAS" />
+        </EntityType>
+        <Association Name="FK__INCORRECT__IDRES__286302EC">
+          <End Role="RESPUESTAS" Type="Self.RESPUESTA" Multiplicity="1" />
+          <End Role="INCORRECTA_EXPLICACION" Type="Self.INCORRECTA_EXPLICACION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RESPUESTAS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="INCORRECTA_EXPLICACION">
+              <PropertyRef Name="IDRESPUESTA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RESPUESTA__IDPRE__25869641">
+          <End Role="PREGUNTAS" Type="Self.PREGUNTA" Multiplicity="1" />
+          <End Role="RESPUESTAS" Type="Self.RESPUESTA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PREGUNTAS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="RESPUESTAS">
+              <PropertyRef Name="IDPREGUNTA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SABER_DBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="INCORRECTA_EXPLICACION" EntityType="Self.INCORRECTA_EXPLICACION" />
+          <EntitySet Name="PREGUNTAS" EntityType="Self.PREGUNTA" />
+          <EntitySet Name="RESPUESTAS" EntityType="Self.RESPUESTA" />
+          <AssociationSet Name="FK__INCORRECT__IDRES__286302EC" Association="Self.FK__INCORRECT__IDRES__286302EC">
+            <End Role="RESPUESTAS" EntitySet="RESPUESTAS" />
+            <End Role="INCORRECTA_EXPLICACION" EntitySet="INCORRECTA_EXPLICACION" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RESPUESTA__IDPRE__25869641" Association="Self.FK__RESPUESTA__IDPRE__25869641">
+            <End Role="PREGUNTAS" EntitySet="PREGUNTAS" />
+            <End Role="RESPUESTAS" EntitySet="RESPUESTAS" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SABER_DBModelStoreContainer" CdmEntityContainer="SABER_DBEntities">
+          <EntitySetMapping Name="INCORRECTA_EXPLICACION">
+            <EntityTypeMapping TypeName="SABER_DBModel.INCORRECTA_EXPLICACION">
+              <MappingFragment StoreEntitySet="INCORRECTA_EXPLICACION">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IDRESPUESTA" ColumnName="IDRESPUESTA" />
+                <ScalarProperty Name="JUSTIFICACION" ColumnName="JUSTIFICACION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PREGUNTAS">
+            <EntityTypeMapping TypeName="SABER_DBModel.PREGUNTA">
+              <MappingFragment StoreEntitySet="PREGUNTAS">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RESPUESTAS">
+            <EntityTypeMapping TypeName="SABER_DBModel.RESPUESTA">
+              <MappingFragment StoreEntitySet="RESPUESTAS">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IDPREGUNTA" ColumnName="IDPREGUNTA" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
