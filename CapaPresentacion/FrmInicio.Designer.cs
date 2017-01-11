@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+           
             this.Btnjuego5 = new System.Windows.Forms.Button();
             this.Btnjuego9 = new System.Windows.Forms.Button();
             this.Btnjuego1 = new System.Windows.Forms.Button();
@@ -167,11 +168,11 @@
             // 
             // lblPregunta
             // 
+            this.lblPregunta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.lblPregunta.Location = new System.Drawing.Point(265, 55);
             this.lblPregunta.Name = "lblPregunta";
             this.lblPregunta.Size = new System.Drawing.Size(532, 23);
             this.lblPregunta.TabIndex = 10;
-            this.lblPregunta.Text = "label1";
             // 
             // BtnFin
             // 
@@ -185,6 +186,7 @@
             // 
             // lblPuntos
             // 
+            this.lblPuntos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.lblPuntos.Location = new System.Drawing.Point(149, 55);
             this.lblPuntos.Name = "lblPuntos";
             this.lblPuntos.Size = new System.Drawing.Size(54, 23);
@@ -197,7 +199,7 @@
             this.lblJusti.Name = "lblJusti";
             this.lblJusti.Size = new System.Drawing.Size(911, 71);
             this.lblJusti.TabIndex = 13;
-            this.lblJusti.Text = "label1";
+            this.lblJusti.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // FrmInicio
             // 
@@ -223,6 +225,7 @@
             this.Controls.Add(this.Btnjuego5);
             this.Name = "FrmInicio";
             this.Text = "FrmInicio";
+            this.Load += new System.EventHandler(this.FrmInicio_Load);
             this.ResumeLayout(false);
 
         }
