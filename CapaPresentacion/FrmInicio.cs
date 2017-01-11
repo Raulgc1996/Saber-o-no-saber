@@ -97,6 +97,10 @@ namespace CapaPresentacion
         private void BtnFin_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Usted termino la partida con " + Convert.ToString(puntuacion) + " Puntos");
+            foreach (Button boton in botones)
+            {
+                boton.Enabled = false;
+            }
         }
 
         private void FrmInicio_Load(object sender, EventArgs e)
