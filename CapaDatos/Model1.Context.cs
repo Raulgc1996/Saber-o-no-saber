@@ -25,7 +25,9 @@ namespace CapaDatos
         }
     
         public DbSet<INCORRECTA_EXPLICACION> INCORRECTA_EXPLICACION { get; set; }
-        public DbSet<PREGUNTA> PREGUNTAS { get; set; }
+        public DbSet<PREGUNTA> PREGUNTAS {
+            get;
+            set; }
         public DbSet<RESPUESTA> RESPUESTAS { get; set; }
     }
 }
