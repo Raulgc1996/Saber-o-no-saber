@@ -23,7 +23,8 @@ namespace CapaDatos
         public List<CapaEntidades.RESPUESTA> returnAnswersFromQuestion(int id)
         {
             List<RESPUESTA> resps = (from rs in DB.RESPUESTAS where rs.IDPREGUNTA == id select (rs)).ToList();
-            return resps;
+          
+            return DesordenarLista(resps);
         }
 
         public String ComprobarPregunta(int id)
@@ -31,6 +32,22 @@ namespace CapaDatos
             INCORRECTA_EXPLICACION resp = (from rs in DB.INCORRECTA_EXPLICACION where rs.IDRESPUESTA == id select rs).SingleOrDefault();
             if (resp != null) { return resp.JUSTIFICACION; }
             return "";
+        }
+
+        public static List<T> DesordenarLista<T>(List<T> input)
+        {
+            List<T> arr = input;
+            List<T> desordenada = new List<T>();
+
+            Random randNum = new Random();
+            while (arr.Count > 0)
+            {
+                int val = randNum.Next(0, arr.Count - 1);
+                desordenada.Add(arr[val]);
+                arr.RemoveAt(val);
+            }
+
+            return desordenada;
         }
     }
 }

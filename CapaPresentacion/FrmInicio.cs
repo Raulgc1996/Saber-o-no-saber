@@ -69,6 +69,7 @@ namespace CapaPresentacion
 
         private void btnJugar_Click(object sender, EventArgs e)
         {
+            lblJusti.Text = "";
             foreach (Button boton in botones)
             {
                 boton.BackColor = DefaultBackColor;
