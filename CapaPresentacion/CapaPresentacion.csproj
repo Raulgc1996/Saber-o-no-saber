@@ -94,10 +94,6 @@
       <Project>{f939c3eb-4342-4e43-9cab-1698fdb045e4}</Project>
       <Name>CapaEntidades</Name>
     </ProjectReference>
-    <ProjectReference Include="..\CapaNegocio\CapaNegocio.csproj">
-      <Project>{6451dff0-f385-4c78-8b56-b67794e3a3af}</Project>
-      <Name>CapaNegocio</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
